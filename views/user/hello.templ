@@ -1,0 +1,67 @@
+package user
+
+var greeting = "Welcome!"
+
+templ Layout(header templ.Component) {
+	<!DOCTYPE html>
+	<html lang="es">
+		<head>
+			<meta charset="UTF-8"/>
+			<meta name="description" content=""/>
+			<meta name="robots" content="index,follow"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<script src="https://unpkg.com/htmx.org@1.9.2" integrity="sha384-L6OqL9pRWyyFU3+/bjdSri+iIphTN/bvYyM37tICVyOJkWZLpP2vGn6VUEXgzg6h" crossorigin="anonymous"></script>
+			<title></title>
+			<link rel="stylesheet" href="./index.css"/>
+			<link href="https://fonts.googleapis.com/css2"/>
+		</head>
+		<body hx-boost>
+			<header></header>
+			<form action="/contacts" method="get" class="tool-bar">
+				<label for="search">Search Term</label>
+				<input
+					id="search"
+					type="search"
+					name="q"
+					value="{{ request.args.get('q') or '' }}"
+					hx-get="/search"
+					hx-trigger="change, keyup delay:200ms changed"
+					hx-target="tbody"
+					hx-push-url="true"
+					hx-indicator="#spinner"
+				/>
+				<img id="spinner" class="htmx-indicator" src="/static/img/spinning-circles.svg" alt="Request In Flight..."/>
+			</form>
+			<table>
+				<tbody></tbody>
+			</table>
+			<main>
+				<section></section>
+			</main>
+			<footer></footer>
+			<script src="./index.js"></script>
+		</body>
+	</html>
+}
+
+templ Hello(name string) {
+	<header>
+		<h1>{ name }</h1>
+		<h2>"{ greeting }" comes from ordinary Go code</h2>
+	</header>
+}
+
+templ Hello(name string) {
+	<header>
+		<h1>{ name }</h1>
+		<h2>"{ greeting }" comes from ordinary Go code</h2>
+	</header>
+}
+
+templ Land_page() {
+	//
+}
+
+templ Index() {
+	Layout()
+}
