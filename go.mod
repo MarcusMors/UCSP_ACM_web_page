@@ -1,4 +1,4 @@
-module github.com/marcusmors/acm_web_page
+module UCSP_ACM_web_page
 
 go 1.18
 

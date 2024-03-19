@@ -1,3 +1,3 @@
 run:
-	@templ generate
-	@go run .
+	templ generate
+	go run .

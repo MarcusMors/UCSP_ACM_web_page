@@ -1,4 +1,4 @@
-package types
+package main
 
 type Period struct {
 	Start string `json:"start"`
@@ -24,9 +24,9 @@ type ACM_board struct {
 }
 
 type Event struct {
-	Name                  string `json:"name"`
-	planning_period_date  string `json:"planning_period_date"`
-	execution_period_date string `json:"execution_period_date"`
-	results_period_date   string `json:"results_period_date"`
-	results_data_id       string `json:"results_data_id"`
+	Name             string `json:"name"`
+	Planning_period  string `json:"planning_period"`
+	Execution_period string `json:"execution_period"`
+	Results_period   string `json:"results_period"`
+	Results_data_id  string `json:"results_data_id"`
 }

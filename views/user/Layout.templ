@@ -1,0 +1,110 @@
+package user
+
+
+const imgDir = "static/img/"
+const cssDir = "static/styles/"
+
+const normalizePath = cssDir + "normalize.css"
+const layoutPath = cssDir + "layout.css"
+
+const logoUrl = imgDir+"ucsp_2021_cropped.png"
+const logoAlt = "logo of the UCSP ACM chapter "
+
+templ Layout(title string, main templ.Component) {
+	<!DOCTYPE html>
+	<html lang="es">
+		<head>
+			<meta charset="UTF-8"/>
+			<meta name="description" content=""/>
+			<meta name="robots" content="index,follow"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<script src="https://unpkg.com/htmx.org@1.9.2" integrity="sha384-L6OqL9pRWyyFU3+/bjdSri+iIphTN/bvYyM37tICVyOJkWZLpP2vGn6VUEXgzg6h" crossorigin="anonymous"/>
+
+      // variable head
+
+      <title>{ title } </title>
+
+			<link rel="stylesheet" href={ normalizePath } />
+			<link rel="stylesheet" href={ layoutPath } />
+
+      // put here variable css
+
+			<link href="https://fonts.googleapis.com/css2"/>
+		</head>
+
+
+		<body hx-boost class="container">
+
+    <header>@Header()</header>
+    @Menu()
+    @Sidebar()
+    <div class="main">
+      @main
+    </div>
+
+    @Footer()
+
+		</body>
+
+    <script>
+    function updateDatalist() {
+      var selection = document.getElementById("search_type").value;
+      var datalist = document.getElementById("suggestions");
+
+      // Clear existing options
+      datalist.innerHTML = "";
+
+      // Add suggestions based on the selected value
+      option_list = [];
+      switch (selection) {
+        case "Chapter member":
+          option_list = [];
+          break;
+        case "Community":
+          break;
+        case "Celebs":
+          option_list = [
+            "Emma Watson",
+          ];
+          break;
+        case "Titles":
+        case "TV_eps":
+        case "Companies":
+          option_list = [];
+          break;
+        case "Genre":
+          option_list = [
+            "Adventure",
+            "Animation",
+          ];
+          break;
+      }
+
+      addSuggestions(datalist, option_list);
+    }
+
+    function addSuggestions(datalist, suggestions) {
+      suggestions.forEach(function (suggestion) {
+        var option = document.createElement("option");
+        option.value = suggestion;
+        datalist.appendChild(option);
+      });
+    }
+  </script>
+
+	</html>
+}
+
+templ Search(data string) {
+	<div>
+		data: { data }
+	</div>
+}
+
+templ Index_main() {
+	<h1>Welcome to UCSP ACM</h1>
+}
+
+templ Index(main templ.Component) {
+	Layout(main)
+}

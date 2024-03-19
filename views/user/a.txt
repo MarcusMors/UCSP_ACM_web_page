@@ -1,0 +1,36 @@
+Diseñar el diagrama entidad relación de la base de datos
+Diseñar el modelo relacional de la base de datos
+Implementación de la Base de Datos
+Desarrollo de Módulos Funcionales
+Módulo de Registro de Dueños y Fundos
+Módulo de Registro de Ganado
+Módulo de Registro de Entradas
+Módulo de Registro de Salidas
+Módulo de Gestión de Poblaciones
+Módulo de Gestión de Registro Reproductivo
+Módulo de Gestión Sanitaria
+Módulo de Gestión de Costos y Ventas
+Módulo de Control Productivo
+Módulo de Implementación de Reportes y Fichas Individuales
+Desarrollo de Interfaz de Usuario (UI)
+Integración de Funcionalidades
+Pruebas y Depuración
+Pruebas Unitarias de Componentes
+Pruebas de Integración de Módulos
+Pruebas de Aceptación del Usuario
+Validación de Funcionalidades y Cumplimiento de Requisitos
+Depuración de Errores y Problemas
+Documentación
+Documentación de Diseño
+Manual de Usuario
+Documentación Técnica
+Implementación y Despliegue
+Instalación del Software en Entorno de Producción
+Configuración de Parámetros y Preferencias
+Migración de Datos (si es necesario)
+Pruebas Finales en Entorno de Producción
+Soporte y Mantenimiento
+Monitoreo y Soporte Post-Implementación
+Actualizaciones de Software
+Resolución de Problemas y Peticiones de Cambio
+Capacitación Continua del Personal

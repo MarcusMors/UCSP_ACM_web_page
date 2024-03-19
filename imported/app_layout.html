@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>{%block title%}{%endblock%}</title>
+  {%block head%}
+  <meta name="description" content="" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="icon" href="../assets/icon.png" />
+  <link rel="stylesheet" href="{{url_for('static', filename='css/normalize.css')}}" />
+
+  <link href="https://fonts.googleapis.com/css2" />
+  <script src="https://kit.fontawesome.com/1b04830cf2.js" crossorigin="anonymous"></script>
+  {%endblock%}
+
+  <link rel="stylesheet" href="{{url_for('static', filename='css/layout.css')}}" />
+  {%block css%}{%endblock%}
+</head>
+
+<body class="hg">
+  <!-- HEADER -->
+  <header class="hg-header">
+
+    <!-- Nueva barra de búsqueda por título -->
+    <div class="search-bar">
+      <form method="post" action="{{ url_for('test_nested') }}">
+        <label for="title">Buscar por título:</label>
+        <input type="text" id="title" name="title" required>
+        <button type="submit">Buscar</button>
+      </form>
+    </div>
+
+
+    {% block header %}{% endblock %}
+  </header>
+  <!-- End_HEADER -->
+
+  <main class="hg-main">
+    {%block content%}
+    {% if results %}
+        <h2>Resultados:</h2>
+        <ul>
+            {% for result in results %}
+                <li>
+                    <img src="{{ result.poster }}" alt="{{ result.title }}">
+                    <p>{{ result.title }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+      {% else %}
+        <p>No se encontraron resultados.</p>
+      {% endif %}
+    {%endblock%}
+  </main>
+
+  <aside class="hg-left" aria-label="Menu">
+    {%block menu%}{%endblock%}
+  </aside>
+
+  <aside class="hg-right" aria-label="Ads">
+    {%block ads%}{%endblock%}
+  </aside>
+
+  <footer class="hg-footer">
+    Footer
+  </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,99 @@
+package user
+
+templ Header() {
+  <img src={ logoUrl } alt={ logoAlt }/>
+
+  <form action="/contacts" method="get" class="tool-bar">
+		<label for="search">Search Term</label>
+		<input
+			id="search"
+			type="search"
+			name="query"
+			hx-get="/search"
+			hx-trigger="change, keyup delay:200ms changed"
+			hx-target="tbody"
+			hx-push-url="true"
+			hx-indicator="#spinner"
+		/>
+		<img id="spinner" class="htmx-indicator" src="/static/img/spinning-circles.svg" alt="Request In Flight..."/>
+	</form>
+	<table>
+		<tbody></tbody>
+	</table>
+
+  <!-- Header -->
+      <div class="header">
+      <span><div href="/" class="logo_container">
+          <img
+            href="/"
+            class="logo"
+            src={ logoUrl }
+            alt={ logoAlt }
+          />
+          <span href="/" class="logo_text">MovieMate</span>
+        </div></span>
+      <span><a href="#">My Movies</a></span>
+      <span><a href="#">Community</a></span>
+
+      <!-- Emmanuel's search bar -->
+
+      <div class="search_bar_container">
+        <form class="nav_bar_form" method="post" action="{{ url_for('home') }}">
+          <!-- <label for="search_type"></label> -->
+          <!-- Do it like IMDb search bar-->
+          <select
+            id="search_type"
+            name="search_type"
+            onchange="updateDatalist()"
+          >
+            <option value="All">All</option>
+            <option value="Person">Person</option>
+            <option value="Community">Community</option>
+            <option value="Titles">Titles</option>
+            <option value="TV_eps">TV eps</option>
+            <option value="Celebs">Celebs</option>
+            <option value="Companies">Companies</option>
+            <option value="Genre">Genre</option>
+          </select>
+          <input
+            type="text"
+            list="suggestions"
+            id="search_text"
+            name="search_text"
+            required
+            placeholder="Search Movie"
+          />
+
+          <button type="submit" class="search_button">
+            <img
+              class="search_icon"
+              src="{{url_for('static', filename='assets/search_icon.svg')}}"
+              alt="search"
+            />
+          </button>
+
+          <datalist id="suggestions">
+            <!-- Default suggestions is none -->
+          </datalist>
+        </form>
+      </div>
+
+      <div class="header_icon_container" title="Friends"><img class="header_icon" src="{{url_for('static', filename='assets/friends_logo.png')}}" alt="Friends"/></div>
+
+      <!-- Profile Dropdown -->
+      <!-- default_user_icon.svg -->
+      <div class="dropdown">
+        <span>Profile</span>
+        <div class="dropdown-content">
+          <ul>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Friends</a></li>
+            <li><a href="#">Log Out</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+    <!-- End_HEADER -->
+
+}
